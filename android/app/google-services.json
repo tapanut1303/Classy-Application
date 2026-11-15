@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "495172782749",
+    "project_id": "classy-d41b7",
+    "storage_bucket": "classy-d41b7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495172782749:android:bd1502d3e457286a9fe274",
+        "android_client_info": {
+          "package_name": "com.example.classy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaEUU7anCU2g-C8S8dz1jS4bt9xt9QUlI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

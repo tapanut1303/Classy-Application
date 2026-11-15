@@ -1,0 +1,103 @@
+# ============================================================
+#  pubspec.yaml  —  ไฟล์ตั้งค่าหลักของโปรเจค Flutter
+#  ทุกอย่างที่แอปต้องใช้ (ชื่อ เวอร์ชัน ไลบรารี รูป ฟอนต์) ประกาศที่นี่
+#  แก้ไฟล์นี้เสร็จทุกครั้ง ต้องสั่ง  flutter pub get  เพื่อให้มีผล
+# ============================================================
+
+# ชื่อโปรเจค ต้องเป็นตัวพิมพ์เล็กและใช้ _ คั่น ห้ามมีเว้นวรรคหรือขีดกลาง
+# ชื่อนี้คือชื่อที่ใช้ตอน import เช่น  import 'package:classy/app.dart';
+name: classy
+
+# คำอธิบายโปรเจค โชว์ตอนเผยแพร่ ไม่มีผลกับการรัน
+description: "Classy - แอปจัดการชีวิตนักศึกษา (โปรเจครายวิชา)"
+
+# 'none' = ไม่เผยแพร่ขึ้น pub.dev กันเผลอ publish โปรเจคเรียน
+publish_to: 'none'
+
+# เวอร์ชันแอป  รูปแบบ  <เวอร์ชันที่คนอ่าน>+<เลขบิลด์>
+# 1.0.0  = major.minor.patch      +1 = versionCode ของ Android
+version: 1.0.0+1
+
+# ------------------------------------------------------------
+# environment = เวอร์ชันภาษา Dart ที่โปรเจคนี้รองรับ
+# ถ้าเครื่องใครมี Dart ต่ำกว่า 3.0.0 จะรันไม่ได้และขึ้นเตือนให้อัปเกรด
+# ------------------------------------------------------------
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+# ------------------------------------------------------------
+# dependencies = ไลบรารีที่ "ตัวแอปจริง" ต้องใช้ ติดไปกับแอปตอนติดตั้ง
+#
+# เครื่องหมาย ^ เช่น ^2.3.0 แปลว่า "เอา 2.3.0 ขึ้นไป แต่ไม่ข้ามไป 3.x"
+# เพราะเลขหลักแรกเปลี่ยน = โครงสร้างเปลี่ยน โค้ดเดิมอาจพัง
+# ------------------------------------------------------------
+dependencies:
+  flutter:
+    sdk: flutter # ตัว Flutter เอง มาจาก SDK ที่ลงในเครื่อง ไม่ได้โหลดจากเน็ต
+
+  cupertino_icons: ^1.0.6 # ชุดไอคอนสไตล์ iOS
+
+  firebase_core: ^4.1.0
+  firebase_auth: ^6.0.2
+
+
+  # ---- ฐานข้อมูล (ข้อกำหนด: บันทึก / แก้ไข / ลบข้อมูล) ----
+  sqflite: ^2.3.0 # ฐานข้อมูล SQLite เก็บในเครื่อง ใช้คำสั่ง SQL ได้เต็มรูปแบบ
+  path: ^1.8.3 # ตัวช่วยต่อ path ของไฟล์ ใช้หาที่เก็บไฟล์ฐานข้อมูล
+
+  # ---- เรียก API ภายนอก (ข้อกำหนด: เรียกใช้ API) ----
+  http: ^1.2.0 # ยิง HTTP request ไปดึงข้อมูลพยากรณ์อากาศ
+  cloud_firestore: ^6.10.0
+
+# ------------------------------------------------------------
+# dev_dependencies = ใช้เฉพาะตอนพัฒนา ไม่ติดไปกับแอปที่ผู้ใช้ติดตั้ง
+# ------------------------------------------------------------
+dev_dependencies:
+  flutter_test:
+    sdk: flutter # ชุดเครื่องมือเขียนเทสต์
+  flutter_lints: ^3.0.0 # กฎตรวจโค้ด เตือนเวลาเขียนผิดแบบแผน
+  
+  flutter_launcher_icons: ^0.14.0
+
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "assets/icon/app_icon.png"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/icon/app_icon_foreground.png"
+
+# ------------------------------------------------------------
+# flutter: = ตั้งค่าเฉพาะของ Flutter (assets, fonts, ไอคอน)
+# ระวังเรื่องการย่อหน้า YAML ใช้เว้นวรรคเท่านั้น ห้ามใช้ Tab
+# ------------------------------------------------------------
+flutter:
+  # true = ให้ใช้ไอคอน Material (Icons.home, Icons.add ฯลฯ) ได้
+  uses-material-design: true
+
+  assets:
+    - assets/images/developers/
+    - assets/icon/
+
+  # ---- รูปภาพและไฟล์อื่น ๆ ----
+  # ประกาศไว้ก่อนได้ ถ้ายังไม่มีโฟลเดอร์ให้ใส่ # ปิดไว้ ไม่งั้นจะ error
+  # assets:
+  #   - assets/images/
+
+  # ---- ฟอนต์ ----
+  # ตอนนี้ยังไม่ได้ใส่ไฟล์ฟอนต์ แอปจะใช้ฟอนต์ default ของเครื่อง รันได้ปกติ
+  # อยากได้หน้าตาเหมือนดีไซน์: โหลด Playfair Display + Inter จาก fonts.google.com
+  # วางไฟล์ .ttf ที่ assets/fonts/ แล้วลบ # ข้างล่างออกทั้งหมด
+  #
+  # fonts:
+  #   - family: PlayfairDisplay       # ชื่อนี้ต้องตรงกับ AppFonts.serif
+  #     fonts:
+  #       - asset: assets/fonts/PlayfairDisplay-Regular.ttf
+  #       - asset: assets/fonts/PlayfairDisplay-Medium.ttf
+  #         weight: 500               # weight บอกความหนา 100-900
+  #       - asset: assets/fonts/PlayfairDisplay-Bold.ttf
+  #         weight: 700
+  #   - family: Inter                 # ชื่อนี้ต้องตรงกับ AppFonts.sans
+  #     fonts:
+  #       - asset: assets/fonts/Inter-Regular.ttf
+  #       - asset: assets/fonts/Inter-SemiBold.ttf
+  #         weight: 600
